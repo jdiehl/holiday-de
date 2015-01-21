@@ -1,0 +1,22 @@
+{
+  "name": "holiday-de",
+  "version": "1.0.0",
+  "description": "German Holidays",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdiehl/holiday-de.git"
+  },
+  "keywords": [
+    "Holidays"
+  ],
+  "author": "Jonathan Diehl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdiehl/holiday-de/issues"
+  },
+  "homepage": "https://github.com/jdiehl/holiday-de"
+}
