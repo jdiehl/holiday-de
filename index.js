@@ -45,8 +45,7 @@ exports.resetHolidays = function () {
     Pfingstsonntag: true,
     'Tag der Deutschen Einheit': true,
     '1. Weihnachtstag': true,
-    '2. Weihnachtstag': true,
-    Silvester: true
+    '2. Weihnachtstag': true
   };
 };
 
