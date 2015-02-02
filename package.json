@@ -4,8 +4,8 @@
   "description": "German Holidays",
   "main": "holiday-de.js",
   "scripts": {
-    "test": "mocha",
-    "posttest": "istanbul cover _mocha;cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+    "test": "istanbul cover _mocha",
+    "posttest": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
   },
   "repository": {
     "type": "git",

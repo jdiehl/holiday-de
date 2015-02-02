@@ -2,24 +2,27 @@
   'use strict';
 
   // calculate the date of easter sunday for the given year
+  var cache = {};
   function calculateEasterSunday(year) {
-    var a = year % 19;
-    var b = Math.floor(year / 100);
-    var c = year % 100;
-    var d = Math.floor(b / 4);
-    var e = b % 4;
-    var f = Math.floor((b + 8) / 25);
-    var g = Math.floor((b - f + 1) / 3);
-    var h = (19 * a + b - d - g + 15) % 30;
-    var i = Math.floor(c / 4);
-    var k = c % 4;
-    var l = (32 + 2 * e + 2 * i - h - k) % 7;
-    var m = Math.floor((a + 11 * h + 22 * l) / 451);
-
-    var month = Math.floor((h + l - 7 * m + 114) / 31);
-    var day = (h + l - 7 * m + 114) % 31;
-    day = Math.round(day + 1);
-    return new Date(year, month  - 1, day);
+    if (!cache[year]) {
+      var a = year % 19;
+      var b = Math.floor(year / 100);
+      var c = year % 100;
+      var d = Math.floor(b / 4);
+      var e = b % 4;
+      var f = Math.floor((b + 8) / 25);
+      var g = Math.floor((b - f + 1) / 3);
+      var h = (19 * a + b - d - g + 15) % 30;
+      var i = Math.floor(c / 4);
+      var k = c % 4;
+      var l = (32 + 2 * e + 2 * i - h - k) % 7;
+      var m = Math.floor((a + 11 * h + 22 * l) / 451);
+      var month = Math.floor((h + l - 7 * m + 114) / 31);
+      var day = (h + l - 7 * m + 114) % 31;
+      day = Math.round(day + 1);
+      cache[year] = new Date(year, month  - 1, day);
+    }
+    return cache[year];
   }
 
   function isBussUndBettag(date) {
