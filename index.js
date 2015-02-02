@@ -46,7 +46,7 @@ exports.resetHolidays = function () {
     'Tag der Deutschen Einheit': true,
     '1. Weihnachtstag': true,
     '2. Weihnachtstag': true
-  }
+  };
 };
 
 exports.setState = function (state) {
@@ -101,21 +101,22 @@ exports.isHoliday = function (date) {
   var day = date.getDate();
 
   function check(name, m, d) {
-    return (exports.holidays[name]&& month === m && day === d) ? name : false;
+    return (exports.holidays[name] && month === m && day === d) ? name : false;
   }
 
   // check fixed holidays
   var r;
-  if (r = check('Neujahrstag', 0, 1)) return r;
-  if (r = check('Heilige Drei Könige', 0, 6)) return r;
-  if (r = check('Tag der Arbeit', 4, 1)) return r;
-  if (r = check('Augsburger Friedensfest', 7, 8)) return r;
-  if (r = check('Mariä Himmelfahrt', 7, 15)) return r;
-  if (r = check('Tag der Deutschen Einheit', 9, 3)) return r;
-  if (r = check('Reformationstag', 9, 31)) return r;
-  if (r = check('Allerheiligen', 10, 1)) return r;
-  if (r = check('1. Weihnachtstag', 11, 25)) return r;
-  if (r = check('2. Weihnachtstag', 11, 26)) return r;
+  if ((r = check('Neujahrstag', 0, 1))) return r;
+  if ((r = check('Heilige Drei Könige', 0, 6))) return r;
+  if ((r = check('Tag der Arbeit', 4, 1))) return r;
+  if ((r = check('Augsburger Friedensfest', 7, 8))) return r;
+  if ((r = check('Mariä Himmelfahrt', 7, 15))) return r;
+  if ((r = check('Tag der Deutschen Einheit', 9, 3))) return r;
+  if ((r = check('Reformationstag', 9, 31))) return r;
+  if ((r = check('Allerheiligen', 10, 1))) return r;
+  if ((r = check('Heiligabend', 11, 24))) return r;
+  if ((r = check('1. Weihnachtstag', 11, 25))) return r;
+  if ((r = check('2. Weihnachtstag', 11, 26))) return r;
 
   // check variable holidays
   var year = date.getFullYear();
@@ -127,17 +128,18 @@ exports.isHoliday = function (date) {
     return (exports.holidays[name] && diff === d) ? name : false;
   }
 
-  if (r = checkVar('Gründonnerstag', -3)) return r;
-  if (r = checkVar('Karfreitag', -2)) return r;
-  if (r = checkVar('Ostersonntag', 0)) return r;
-  if (r = checkVar('Ostermontag', 1)) return r;
-  if (r = checkVar('Christi Himmelfahrt', 39)) return r;
-  if (r = checkVar('Pfingstsonntag', 49)) return r;
-  if (r = checkVar('Pfingstmontag', 50)) return r;
-  if (r = checkVar('Fronleichnam', 60)) return r;
+  if ((r = checkVar('Rosenmontag', -48))) return r;
+  if ((r = checkVar('Gründonnerstag', -3))) return r;
+  if ((r = checkVar('Karfreitag', -2))) return r;
+  if ((r = checkVar('Ostersonntag', 0))) return r;
+  if ((r = checkVar('Ostermontag', 1))) return r;
+  if ((r = checkVar('Christi Himmelfahrt', 39))) return r;
+  if ((r = checkVar('Pfingstsonntag', 49))) return r;
+  if ((r = checkVar('Pfingstmontag', 50))) return r;
+  if ((r = checkVar('Fronleichnam', 60))) return r;
 
   // check Bu&- und Bettag
   if (exports.holidays['Buß- und Bettag'] && isBussUndBettag(date)) return 'Buß- und Bettag';
 
   return false;
-}
+};

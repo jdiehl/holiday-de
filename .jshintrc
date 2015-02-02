@@ -31,8 +31,8 @@
   "strict"        : true,     // true: Requires all functions run in ES5 Strict Mode
   "maxparams"     : 5,        // {int} Max number of formal params allowed per function
   "maxdepth"      : 5,        // {int} Max depth of nested blocks (within functions)
-  "maxstatements" : 30,       // {int} Max number statements per function
-  "maxcomplexity" : 12,       // {int} Max cyclomatic complexity per function
+  "maxstatements" : 40,       // {int} Max number statements per function
+  "maxcomplexity" : 40,       // {int} Max cyclomatic complexity per function
   "maxlen"        : 120,      // {int} Max number of characters per line
 
   // Relaxing
