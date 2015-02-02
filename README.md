@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jdiehl/holiday-de.svg)](https://travis-ci.org/jdiehl/holiday-de)
+
 # holiday-de
 
 Determine whether a given date is a German holiday
