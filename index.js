@@ -148,5 +148,5 @@ exports.isHoliday = function (date) {
 exports.isWorkday = function (date) {
   var day = date.getDay();
   if (day === 0 || day === 6) return false;
-  return exports.isHoliday(date);
+  return !exports.isHoliday(date);
 };
