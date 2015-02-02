@@ -1,0 +1,26 @@
+{
+  "name": "holiday-de",
+  "main": "index.js",
+  "version": "1.0.5",
+  "homepage": "https://github.com/jdiehl/holiday-de",
+  "authors": [
+    "Jonathan Diehl"
+  ],
+  "description": "German Holidays",
+  "moduleType": [
+    "globals",
+    "node"
+  ],
+  "keywords": [
+    "Holidays"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    ".jscsrc",
+    ".jshintrc"
+  ]
+}
