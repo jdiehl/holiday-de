@@ -37,28 +37,28 @@ holiday.isHoliday(new Date(2015, 0, 1));
 
 ## List of supported holidays
 
-* Neujahrstag
-* Heilige Drei Könige
-* Tag der Arbeit
-* Augsburger Friedensfest
-* Mariä Himmelfahrt
-* Tag der Deutschen Einheit
-* Reformationstag
-* Allerheiligen
-* Heiligabend
-* 1. Weihnachtstag
-* 2. Weihnachtstag
-* Silvester
-* Rosenmontag
-* Gründonnerstag
-* Karfreitag
-* Ostersonntag
-* Ostermontag
-* Christi Himmelfahrt
-* Pfingstsonntag
-* Pfingstmontag
-* Fronleichnam
-* Buß- und Bettag
+* `Neujahrstag`
+* `Heilige Drei Könige`
+* `Tag der Arbeit`
+* `Augsburger Friedensfest`
+* `Mariä Himmelfahrt`
+* `Tag der Deutschen Einheit`
+* `Reformationstag`
+* `Allerheiligen`
+* `Heiligabend`
+* `1. Weihnachtstag`
+* `2. Weihnachtstag`
+* `Silvester`
+* `Rosenmontag`
+* `Gründonnerstag`
+* `Karfreitag`
+* `Ostersonntag`
+* `Ostermontag`
+* `Christi Himmelfahrt`
+* `Pfingstsonntag`
+* `Pfingstmontag`
+* `Fronleichnam`
+* `Buß- und Bettag`
 
 To check which holidays are enabled for a state, call `setState()` and check the `holidays` object:
 
