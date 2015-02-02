@@ -45,7 +45,8 @@ exports.resetHolidays = function () {
     Pfingstsonntag: true,
     'Tag der Deutschen Einheit': true,
     '1. Weihnachtstag': true,
-    '2. Weihnachtstag': true
+    '2. Weihnachtstag': true,
+    Silvester: true
   };
 };
 
@@ -117,6 +118,7 @@ exports.isHoliday = function (date) {
   if ((r = check('Heiligabend', 11, 24))) return r;
   if ((r = check('1. Weihnachtstag', 11, 25))) return r;
   if ((r = check('2. Weihnachtstag', 11, 26))) return r;
+  if ((r = check('Silvester', 11, 31))) return r;
 
   // check variable holidays
   var year = date.getFullYear();
