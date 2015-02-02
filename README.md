@@ -67,10 +67,11 @@ holiday.setState('nw');
 console.log(holiday.holidays);
 ```
 
-To enable a disabled holiday, set it to `true`:
+To enable a additional holidays, set them to `true` in the `holidays` object:
 
 ```
 holiday.holidays.Rosenmontag = true;
+holiday.holidays['Augsburger Friedensfest'] = true;
 ```
 
 ## Author
