@@ -1,7 +1,7 @@
 /*jshint mocha: true*/
 'use strict';
 
-var holiday = require('../index');
+var holiday = require('../holiday-de');
 
 describe('#holiday-de', function () {
 

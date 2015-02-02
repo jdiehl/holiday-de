@@ -1,7 +1,7 @@
 {
   "name": "holiday-de",
-  "main": "index.js",
-  "version": "1.0.5",
+  "main": "holiday-de.js",
+  "version": "1.0.6",
   "homepage": "https://github.com/jdiehl/holiday-de",
   "authors": [
     "Jonathan Diehl"
