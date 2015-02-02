@@ -27,5 +27,8 @@
   "bugs": {
     "url": "https://github.com/jdiehl/holiday-de/issues"
   },
-  "homepage": "https://github.com/jdiehl/holiday-de"
+  "homepage": "https://github.com/jdiehl/holiday-de",
+  "devDependencies": {
+    "mocha": "^2.1.0"
+  }
 }
