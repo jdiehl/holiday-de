@@ -18,6 +18,8 @@ holiday.setState('nw');
 holiday.isHoliday(new Date(2015, 0, 1));
 ```
 
+Footnote: holiday-de plays nice with [moment](http://momentjs.com).
+
 ## List of supported states (Bundesländer)
 
 * `bw`: Baden-Württemberg

@@ -20,7 +20,7 @@
       var month = Math.floor((h + l - 7 * m + 114) / 31);
       var day = (h + l - 7 * m + 114) % 31;
       day = Math.round(day + 1);
-      cache[year] = new Date(year, month  - 1, day);
+      cache[year] = new Date(year, month - 1, day);
     }
     return cache[year];
   }
@@ -31,7 +31,7 @@
     // The last Wednesday before Nov 23rd
     var year = date.getFullYear();
     var dayOfWeek = new Date(year, 10, 22).getDay();
-    var daysAdjust = (dayOfWeek - 3);
+    var daysAdjust = dayOfWeek - 3;
     if (daysAdjust < 0) daysAdjust += 7;
     var day = new Date(year, 11, 22 - daysAdjust);
     return day.getDate() === date.getDate();
@@ -101,27 +101,28 @@
   };
 
   exports.isHoliday = function (date) {
+    if (date && typeof date.toDate === 'function') date = date.toDate();
     var month = date.getMonth();
     var day = date.getDate();
 
     function check(name, m, d) {
-      return (exports.holidays[name] && month === m && day === d) ? name : false;
+      return exports.holidays[name] && month === m && day === d ? name : false;
     }
 
     // check fixed holidays
     var r;
-    if ((r = check('Neujahrstag', 0, 1))) return r;
-    if ((r = check('Heilige Drei Könige', 0, 6))) return r;
-    if ((r = check('Tag der Arbeit', 4, 1))) return r;
-    if ((r = check('Augsburger Friedensfest', 7, 8))) return r;
-    if ((r = check('Mariä Himmelfahrt', 7, 15))) return r;
-    if ((r = check('Tag der Deutschen Einheit', 9, 3))) return r;
-    if ((r = check('Reformationstag', 9, 31))) return r;
-    if ((r = check('Allerheiligen', 10, 1))) return r;
-    if ((r = check('Heiligabend', 11, 24))) return r;
-    if ((r = check('1. Weihnachtstag', 11, 25))) return r;
-    if ((r = check('2. Weihnachtstag', 11, 26))) return r;
-    if ((r = check('Silvester', 11, 31))) return r;
+    if (r = check('Neujahrstag', 0, 1)) return r;
+    if (r = check('Heilige Drei Könige', 0, 6)) return r;
+    if (r = check('Tag der Arbeit', 4, 1)) return r;
+    if (r = check('Augsburger Friedensfest', 7, 8)) return r;
+    if (r = check('Mariä Himmelfahrt', 7, 15)) return r;
+    if (r = check('Tag der Deutschen Einheit', 9, 3)) return r;
+    if (r = check('Reformationstag', 9, 31)) return r;
+    if (r = check('Allerheiligen', 10, 1)) return r;
+    if (r = check('Heiligabend', 11, 24)) return r;
+    if (r = check('1. Weihnachtstag', 11, 25)) return r;
+    if (r = check('2. Weihnachtstag', 11, 26)) return r;
+    if (r = check('Silvester', 11, 31)) return r;
 
     // check variable holidays
     var year = date.getFullYear();
@@ -130,18 +131,18 @@
     var diff = Math.round((date.valueOf() - tsYearStart) / 86400000) - easterDays;
 
     function checkVar(name, d) {
-      return (exports.holidays[name] && diff === d) ? name : false;
+      return exports.holidays[name] && diff === d ? name : false;
     }
 
-    if ((r = checkVar('Rosenmontag', -48))) return r;
-    if ((r = checkVar('Gründonnerstag', -3))) return r;
-    if ((r = checkVar('Karfreitag', -2))) return r;
-    if ((r = checkVar('Ostersonntag', 0))) return r;
-    if ((r = checkVar('Ostermontag', 1))) return r;
-    if ((r = checkVar('Christi Himmelfahrt', 39))) return r;
-    if ((r = checkVar('Pfingstsonntag', 49))) return r;
-    if ((r = checkVar('Pfingstmontag', 50))) return r;
-    if ((r = checkVar('Fronleichnam', 60))) return r;
+    if (r = checkVar('Rosenmontag', -48)) return r;
+    if (r = checkVar('Gründonnerstag', -3)) return r;
+    if (r = checkVar('Karfreitag', -2)) return r;
+    if (r = checkVar('Ostersonntag', 0)) return r;
+    if (r = checkVar('Ostermontag', 1)) return r;
+    if (r = checkVar('Christi Himmelfahrt', 39)) return r;
+    if (r = checkVar('Pfingstsonntag', 49)) return r;
+    if (r = checkVar('Pfingstmontag', 50)) return r;
+    if (r = checkVar('Fronleichnam', 60)) return r;
 
     // check Bu&- und Bettag
     if (exports.holidays['Buß- und Bettag'] && isBussUndBettag(date)) return 'Buß- und Bettag';
@@ -150,8 +151,9 @@
   };
 
   exports.isWorkday = function (date) {
+    if (date && typeof date.toDate === 'function') date = date.toDate();
     var day = date.getDay();
     if (day === 0 || day === 6) return false;
     return !exports.isHoliday(date);
   };
-}(typeof exports === 'undefined' ? (window.holiday = {}) : exports));
+}(typeof exports === 'undefined' ? window.holiday = {} : exports));

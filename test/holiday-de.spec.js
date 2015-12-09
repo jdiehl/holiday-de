@@ -1,9 +1,12 @@
-/*jshint mocha: true*/
+/*eslint-env mocha*/
+/*eslint no-console: 0 strict: 0*/
 'use strict';
 
+var moment = require('moment');
 var holiday = require('../holiday-de');
 
 describe('#holiday-de', function () {
+  var testData;
 
   function makeDateString(date) {
     var y = date.getFullYear();
@@ -53,7 +56,7 @@ describe('#holiday-de', function () {
     });
   }
 
-  var testData = loadTestData();
+  testData = loadTestData();
   Object.keys(testData).forEach(function (state) {
     describe(state, function () {
       beforeEach(function () { holiday.setState(state); });
@@ -94,6 +97,18 @@ describe('#holiday-de', function () {
     it('isHoliday() should identify Gründonnerstag 2015 as a holiday', function () {
       var test = holiday.isHoliday(new Date(2015, 3, 2));
       console.assert(test, '2015-02-04 should be a holiday');
+    });
+  });
+
+  describe('moment', function () {
+    beforeEach(function () { holiday.setState('nw'); });
+    it('isHoliday() should support a moment object', function () {
+      var test = holiday.isHoliday(moment('2015-01-01'));
+      console.assert(test, '2015-01-01 should be a holiday');
+    });
+    it('isHoliday() should support a moment object', function () {
+      var test = holiday.isWorkday(moment('2015-01-02'));
+      console.assert(test, '2015-01-02 should be a workday');
     });
   });
 
