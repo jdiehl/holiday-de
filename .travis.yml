@@ -1,4 +1,14 @@
 language: node_js
 node_js:
-  - "0.11"
-  - "0.10"
+- '4.1'
+- '4.0'
+- '0.11'
+- '0.10'
+deploy:
+  provider: npm
+  email: jonathan.diehl@gmail.com
+  api_key:
+    secure: WA2k8NIs8gdrXIWLGiVH/IELD3lvmTy7cgjKpB26sgeSj3aSmwdOU6AfoGqO+oI84xzux2bgTixavY+7fzZi4rVAraUJFRJiMWd8WGPAiQ+2SscU6ueKpBfFs6QYH8lyfeOc2QA6cQJ99MJ2zsOwYAG9P7YbFAB7n5FupjvqTuA=
+  on:
+    tags: true
+    repo: jdiehl/holiday-de
