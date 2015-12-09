@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/jdiehl/holiday-de.svg)](https://travis-ci.org/jdiehl/holiday-de) [![Coverage Status](https://coveralls.io/repos/jdiehl/holiday-de/badge.svg)](https://coveralls.io/r/jdiehl/holiday-de)
+[![Build Status](https://travis-ci.org/jdiehl/holiday-de.svg)](https://travis-ci.org/jdiehl/holiday-de)
+[![Coverage Status](https://coveralls.io/repos/jdiehl/holiday-de/badge.svg)](https://coveralls.io/r/jdiehl/holiday-de)
+[![Dependency Status](https://david-dm.org/jdiehl/holiday-de.svg)](https://david-dm.org/jdiehl/holiday-de)
 
 # holiday-de
 
