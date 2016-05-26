@@ -100,6 +100,31 @@ describe('#holiday-de', function () {
     });
   });
 
+  describe('neglecting time and time zone', function () {
+    beforeEach(function () { holiday.setState('by'); });
+    afterEach(function () { holiday.resetHolidays(); });
+    it('isHoliday() should not identify holidays one second before they start', function () {
+      var test = holiday.isHoliday(new Date(2016, 4, 25, 23, 59, 59));
+      console.assert(test === false, '2016-05-25 23:59:59 should not be a holiday');
+    });
+    it('isHoliday() should identify holidays as soon as they start', function () {
+      var test = holiday.isHoliday(new Date(2016, 4, 26, 0, 0, 0));
+      console.assert(test, '2016-05-26 00:00:00 should be a holiday');
+    });
+    it('isHoliday() should identify holidays at noon', function () {
+      var test = holiday.isHoliday(new Date(2016, 4, 26, 12, 0, 0));
+      console.assert(test, '2016-05-26 12:00:00 should be a holiday');
+    });
+    it('isHoliday() should identify holidays one second before they are over', function () {
+      var test = holiday.isHoliday(new Date(2016, 4, 26, 23, 59, 59));
+      console.assert(test, '2016-05-26 23:59:59 should be a holiday');
+    });
+    it('isHoliday() should not identify holidays as soon as they are over', function () {
+      var test = holiday.isHoliday(new Date(2016, 4, 27, 0, 0, 0));
+      console.assert(test === false, '2016-05-27 00:00:00 should not be a holiday');
+    });
+  });
+
   describe('moment', function () {
     beforeEach(function () { holiday.setState('nw'); });
     it('isHoliday() should support a moment object', function () {

@@ -128,7 +128,7 @@
     var year = date.getFullYear();
     var tsYearStart = new Date(year, 0, 1).valueOf();
     var easterDays = Math.round((calculateEasterSunday(year).valueOf() - tsYearStart) / 86400000);
-    var diff = Math.round((date.valueOf() - tsYearStart) / 86400000) - easterDays;
+    var diff = Math.round((new Date(year, month, day).valueOf() - tsYearStart) / 86400000) - easterDays;
 
     function checkVar(name, d) {
       return exports.holidays[name] && diff === d ? name : false;
