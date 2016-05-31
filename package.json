@@ -1,6 +1,6 @@
 {
   "name": "holiday-de",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "German Holidays",
   "main": "holiday-de.js",
   "scripts": {
@@ -33,6 +33,7 @@
     "coveralls": "^2.11.2",
     "istanbul": "^0.4.1",
     "mocha": "^2.1.0",
+    "mocha-lcov-reporter": "^1.2.0",
     "moment": "^2.10.6"
   }
 }
