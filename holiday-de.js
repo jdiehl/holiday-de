@@ -102,11 +102,12 @@
 
   exports.isHoliday = function (date) {
     if (date && typeof date.toDate === 'function') date = date.toDate();
+    var year = date.getFullYear();
     var month = date.getMonth();
     var day = date.getDate();
 
-    function check(name, m, d) {
-      return exports.holidays[name] && month === m && day === d ? name : false;
+    function check(name, m, d, override) {
+      return (override || exports.holidays[name]) && month === m && day === d ? name : false;
     }
 
     // check fixed holidays
@@ -117,7 +118,7 @@
     if (r = check('Augsburger Friedensfest', 7, 8)) return r;
     if (r = check('Mariä Himmelfahrt', 7, 15)) return r;
     if (r = check('Tag der Deutschen Einheit', 9, 3)) return r;
-    if (r = check('Reformationstag', 9, 31)) return r;
+    if (r = check('Reformationstag', 9, 31, year === 2017)) return r;
     if (r = check('Allerheiligen', 10, 1)) return r;
     if (r = check('Heiligabend', 11, 24)) return r;
     if (r = check('1. Weihnachtstag', 11, 25)) return r;
@@ -125,7 +126,6 @@
     if (r = check('Silvester', 11, 31)) return r;
 
     // check variable holidays
-    var year = date.getFullYear();
     var tsYearStart = new Date(year, 0, 1).valueOf();
     var easterDays = Math.round((calculateEasterSunday(year).valueOf() - tsYearStart) / 86400000);
     var diff = Math.round((new Date(year, month, day).valueOf() - tsYearStart) / 86400000) - easterDays;

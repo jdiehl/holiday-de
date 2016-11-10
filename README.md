@@ -64,6 +64,8 @@ Footnote: holiday-de plays nice with [moment](http://momentjs.com).
 * `Fronleichnam`
 * `Buß- und Bettag`
 
+Note that in 2017 `Reformationstag` is a holiday in all states.
+
 To check which holidays are enabled for a state, call `setState()` and check the `holidays` object:
 
 ```
