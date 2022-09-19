@@ -1,6 +1,6 @@
 {
   "name": "holiday-de",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "German Holidays",
   "main": "holiday-de.js",
   "types": "holiday-de.d.ts",
